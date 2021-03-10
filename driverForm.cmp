@@ -1,0 +1,49 @@
+<aura:component controller="DriverController">
+    <aura:attribute name="newDriver" type="Driver__c"
+                    default="{ 'sobjectType': 'Driver__c',
+                             'Name': '',
+                             'FIO__c': '',
+                             'Order__c': '',
+                             'Expire__c': '',
+                             'Salary__c': '' }"/>
+    
+    <aura:handler name="init" action="{!c.clickCreate}" value="{!this}"/>
+    <div aria-labelledby="driversform">
+        <fieldset class="slds-box slds-theme_default slds-container_small">
+        <legend id="newdriverform" class="slds-text-heading_small
+          slds-p-vertical_medium">
+          Add Driver
+        </legend>
+        <form class="slds-form_stacked">
+            
+           <lightning:input aura:id="driverform" label="Driver Name"
+                             name="drivername"
+                             value="{!v.newDriver.Name}"
+                             required="true"/>
+            
+           <lightning:input aura:id="driverform" label="Driver FIO"
+                             name="driverfio"
+                             value="{!v.newDriver.FIO__c}"/>
+            
+            <lightning:input aura:id="driverform" label="Driver Order"
+                             name="driverorder"
+                             value="{!v.newDriver.Order__c}"/>
+            
+            <lightning:input aura:id="driverform" label="Experence"
+                             name="experence"
+                             formatter="number"
+                             value="{!v.newDriver.Expire__c}"/>
+            
+            <lightning:input aura:id="driverform" label="Salary"
+                             name="salary"
+                             formatter="number"
+                             value="{!v.newDriver.Salary__c}"/>
+            
+            <lightning:button label="Create Driber"
+                              class="slds-m-top_medium"
+                              variant="brand"
+                              onclick="{!c.clickCreate}"/>
+        </form>
+      </fieldset>
+    </div>
+</aura:component>

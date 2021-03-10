@@ -1,0 +1,12 @@
+<aura:component controller="DriverController">
+
+    <aura:attribute type="Driver__c[]" name="driverList"/>
+    <aura:attribute name="mycolumns" type="List"/>
+      
+    <aura:handler name="init" value="{!this}" action="{!c.display}"/>
+      
+    <lightning:datatable data="{! v.driverList }"
+                         columns="{! v.mycolumns }"
+                         keyField="id"
+                         hideCheckboxColumn="true"/>
+</aura:component>
